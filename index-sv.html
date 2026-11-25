@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sucursal Virtual · 27 ago–24 nov 2026</title>
+  <meta name="description" content="En 90 días la Sucursal Virtual registró 3.003.512 vistas oficiales (2.990.840 de clientes al excluir tráfico interno y /404). Casi la mitad del portal se concentra en Reembolsos (47,8%, con 92,6% de término entre paso 1 y paso 6).">
+  <meta name="theme-color" content="#f4f1ec">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%230f202b' width='32' height='32'/%3E%3Crect fill='%23ff585c' x='0' y='26' width='32' height='6'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Overpass:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+      --slate: #0f202b;
+      --coral: #ff585c;
+      --coral-deep: #d2353f;
+      --aqua: #1aa9a4;
+      --purple: #6f5aa8;
+      --pink: #e06b8a;
+      --sky: #3b90c0;
+      --bg: #f4f1ec;
+      --paper: #fcfaf7;
+      --ink: #0f202b;
+      --muted: rgba(15, 32, 43, 0.62);
+      --faint: rgba(15, 32, 43, 0.42);
+      --line: rgba(15, 32, 43, 0.12);
+      --line-strong: rgba(15, 32, 43, 0.2);
+      --heat-empty: #efebe4;
+      --up: #1aa9a4;
+      --down: #d2353f;
+      --max: 72rem;
+      --pad: clamp(1.25rem, 4vw, 2.5rem);
+      --sticky: 3.25rem;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--sticky) + 1.25rem);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      font-family: "Noto Sans", system-ui, sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.88em;
+      background: rgba(15, 32, 43, 0.06);
+      padding: 0.08em 0.35em;
+      border-radius: 3px;
+    }
+
+    a { color: inherit; }
+    a:hover { color: var(--coral-deep); }
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--coral);
+      outline-offset: 3px;
+    }
+
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 0;
+      background: var(--slate);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      z-index: 100;
+    }
+    .skip:focus { left: 0.75rem; top: 0.75rem; }
+
+    .wrap {
+      width: min(var(--max), 100%);
+      margin-inline: auto;
+      padding-inline: var(--pad);
+    }
+
+    /* —— Sticky nav —— */
+    .topnav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(247, 245, 240, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topnav-inner {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem 1.5rem;
+      min-height: var(--sticky);
+      padding-block: 0.55rem;
+      flex-wrap: wrap;
+    }
+    .topnav-title {
+      font-family: Overpass, sans-serif;
+      font-weight: 600;
+      font-size: 0.8125rem;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      color: var(--slate);
+      text-decoration: none;
+      flex: 0 0 auto;
+    }
+    .topnav-title:hover { color: var(--coral-deep); }
+    .toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 0.78rem;
+      font-size: 0.73rem;
+      line-height: 1.2;
+      color: var(--muted);
+      flex: 1 1 16rem;
+      padding-block: 0.15rem;
+    }
+    .toc a {
+      text-decoration: none;
+      white-space: nowrap;
+      color: var(--muted);
+      padding-bottom: 2px;
+      border-bottom: 1.5px solid transparent;
+      transition: color 0.18s ease, border-color 0.18s ease;
+    }
+    .toc a:hover { color: var(--slate); }
+    .toc a.is-active {
+      color: var(--coral-deep);
+      font-weight: 600;
+      border-bottom-color: var(--coral);
+    }
+
+    /* —— Hero —— */
+    .hero {
+      padding-top: clamp(2.75rem, 7vw, 5rem);
+      padding-bottom: clamp(2rem, 5vw, 3.25rem);
+    }
+    .hero-rule {
+      width: 2.5rem;
+      height: 2px;
+      background: var(--coral);
+      margin-bottom: 1.5rem;
+      border: 0;
+    }
+    h1 {
+      font-family: Overpass, sans-serif;
+      font-weight: 600;
+      font-size: clamp(2rem, 5.4vw, 3.35rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--slate);
+      max-width: 16ch;
+    }
+    .hero-period {
+      font-family: Overpass, sans-serif;
+      font-weight: 500;
+      font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+      letter-spacing: -0.02em;
+      color: var(--muted);
+      margin-top: 0.55rem;
+    }
+    .lede {
+      margin-top: 1.35rem;
+      max-width: 48rem;
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    /* —— Sections —— */
+    section {
+      padding-block: clamp(2.5rem, 6vw, 4.25rem);
+      border-top: 1px solid var(--line);
+      scroll-margin-top: calc(var(--sticky) + 0.75rem);
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+    .sec-head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.85rem 1.15rem;
+      align-items: baseline;
+      margin-bottom: 1.75rem;
+    }
+    .sec-index {
+      font-family: Overpass, sans-serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--coral-deep);
+      padding-top: 0.35rem;
+    }
+    h2 {
+      font-family: Overpass, sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: var(--slate);
+    }
+    .sec-caption {
+      grid-column: 2;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: var(--faint);
+      max-width: 54rem;
+      margin-top: -0.35rem;
+    }
+    section .prose {
+      max-width: 48rem;
+      color: var(--ink);
+    }
+    section .prose + .prose { margin-top: 1rem; }
+    section .prose + .chart,
+    section .prose + .table-scroll,
+    section .prose + .kpis,
+    section .prose + .funnel,
+    section .callout + *,
+    section .segmented + *,
+    section .chart + *,
+    section .table-scroll + *,
+    section .grid + *,
+    section .props + *,
+    section .kpis + *,
+    section .funnel + *,
+    section .steps,
+    section * + .prose { margin-top: 1.35rem; }
+    section .table-scroll + .table-scroll { margin-top: 1.75rem; }
+
+    /* —— Properties —— */
+    .props {
+      display: grid;
+      border-top: 1px solid var(--line);
+    }
+    .props div {
+      display: grid;
+      grid-template-columns: 12.5rem 1fr;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--line);
+      align-items: baseline;
+    }
+    .props dt {
+      font-family: Overpass, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+    .props dd { font-size: 0.98rem; }
+
+    /* —— KPI strip —— */
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .kpi {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 1.15rem 1.2rem;
+    }
+    .kpi-label {
+      font-family: Overpass, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 0.45rem;
+    }
+    .kpi-val {
+      font-family: Overpass, sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.55rem, 2.5vw, 2rem);
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--slate);
+      font-variant-numeric: tabular-nums;
+    }
+    .kpi-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+    }
+
+    /* —— Funnel bars —— */
+    .funnel {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 1.25rem;
+    }
+    .funnel-row {
+      display: grid;
+      grid-template-columns: minmax(12rem, 18rem) 1fr auto;
+      gap: 0.75rem 1.15rem;
+      align-items: center;
+      padding: 0.35rem 0.4rem;
+      border-radius: 4px;
+      transition: background 0.15s ease;
+      cursor: default;
+    }
+    .funnel-row:hover {
+      background: rgba(15, 32, 43, 0.04);
+    }
+    .funnel-name {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--slate);
+    }
+    .funnel-meta {
+      font-size: 0.74rem;
+      color: var(--faint);
+      display: block;
+    }
+    .funnel-track {
+      height: 0.85rem;
+      background: var(--heat-empty);
+      position: relative;
+      overflow: hidden;
+    }
+    .funnel-fill {
+      height: 100%;
+      background: var(--slate);
+      transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .funnel-row.is-primary .funnel-fill {
+      background: var(--coral);
+    }
+    .funnel-val {
+      font-family: Overpass, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      color: var(--slate);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* —— Tables —— */
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      min-width: 36rem;
+    }
+    th, td {
+      padding: 0.7rem 0.9rem;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th:first-child, td:first-child { padding-left: 0; }
+    th:last-child, td:last-child { padding-right: 0; }
+    td:first-child { overflow-wrap: anywhere; }
+    tbody tr {
+      transition: background 0.14s ease;
+    }
+    tbody tr:hover {
+      background: rgba(15, 32, 43, 0.035);
+    }
+    th {
+      font-family: Overpass, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--faint);
+      border-bottom: 1px solid var(--line-strong);
+      white-space: nowrap;
+      user-select: none;
+    }
+    th.is-sortable {
+      cursor: pointer;
+    }
+    th.is-sortable:hover {
+      color: var(--slate);
+    }
+    th .sort-ind {
+      display: inline-block;
+      margin-left: 0.28rem;
+      color: var(--coral-deep);
+      font-size: 0.72rem;
+    }
+    td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    td.emph { font-weight: 600; }
+    .delta-up { color: var(--up); }
+    .delta-down { color: var(--down); }
+
+    /* —— Callout —— */
+    .callout {
+      padding: 0.15rem 0 0.15rem 1.25rem;
+      border-left: 2px solid var(--coral);
+    }
+    .callout strong {
+      font-family: Overpass, sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+    .callout p { color: var(--ink); font-size: 0.98rem; }
+
+    /* —— Segmented —— */
+    .segmented {
+      position: relative;
+      display: inline-flex;
+      border: 1px solid var(--line-strong);
+      padding: 3px;
+      gap: 2px;
+      background: var(--paper);
+    }
+    .segmented-slider {
+      position: absolute;
+      top: 3px;
+      bottom: 3px;
+      left: 3px;
+      background: var(--slate);
+      transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), width 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: 0;
+    }
+    .segmented button {
+      position: relative;
+      z-index: 1;
+      font-family: Overpass, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      background: transparent;
+      border: 0;
+      color: var(--muted);
+      padding: 0.4rem 0.95rem;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    .segmented button[aria-selected="true"] {
+      color: #fff;
+    }
+    .heat-panel {
+      transition: opacity 0.22s ease;
+    }
+    .heat-panel[hidden] {
+      display: none;
+    }
+
+    /* —— Heatmap —— */
+    .heatmap-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .heatmap {
+      display: grid;
+      gap: 3px;
+      min-width: 36rem;
+      font-size: 0.7rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .heatmap-sections { grid-template-columns: minmax(11.5rem, 1.55fr) repeat(7, 1fr); }
+    .heatmap-hours {
+      grid-template-columns: 2.3rem repeat(7, 1fr);
+      min-width: 28rem;
+    }
+    .heatmap .h-col,
+    .heatmap .h-row {
+      color: var(--faint);
+      font-family: Overpass, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      transition: color 0.12s ease;
+    }
+    .heatmap .h-col { text-align: center; padding-bottom: 0.3rem; }
+    .heatmap .h-row {
+      display: flex;
+      align-items: center;
+      padding-right: 0.6rem;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      font-size: 0.72rem;
+    }
+    .heatmap .h-col.is-hl,
+    .heatmap .h-row.is-hl {
+      color: var(--coral-deep);
+    }
+    .heatmap-hours .h-row { justify-content: flex-end; padding-right: 0.4rem; }
+    .h-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.05rem;
+      background: var(--heat-empty);
+      color: var(--slate);
+      font-weight: 500;
+      cursor: default;
+      transition: transform 0.12s ease, outline-color 0.12s ease, opacity 0.12s ease;
+    }
+    .h-cell.is-dim { opacity: 0.62; }
+    .h-cell.is-active {
+      outline: 2px solid var(--slate);
+      outline-offset: -1px;
+      position: relative;
+      z-index: 2;
+    }
+    .heatmap-hours .h-cell { min-height: 1.35rem; font-size: 0.62rem; }
+    .h-legend {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.72rem;
+      color: var(--faint);
+    }
+    .h-scale {
+      width: 6.5rem;
+      height: 0.4rem;
+      background: linear-gradient(90deg, var(--heat-empty), var(--coral));
+    }
+
+    /* —— Charts —— */
+    .chart {
+      width: 100%;
+      position: relative;
+    }
+    .chart svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.25rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .legend-btn {
+      display: inline-flex;
+      align-items: center;
+      background: transparent;
+      border: 0;
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+      padding: 0.15rem 0.25rem;
+      border-radius: 3px;
+      transition: opacity 0.16s ease, background 0.16s ease;
+    }
+    .legend-btn:hover { background: rgba(15, 32, 43, 0.05); }
+    .legend-btn.is-off { opacity: 0.38; text-decoration: line-through; }
+    .chart-legend i {
+      display: inline-block;
+      width: 0.9rem;
+      height: 2px;
+      margin-right: 0.4rem;
+      vertical-align: middle;
+      background: currentColor;
+    }
+    .chart-legend .swatch {
+      display: inline-block;
+      width: 0.6rem;
+      height: 0.6rem;
+      margin-right: 0.4rem;
+      vertical-align: -0.05rem;
+    }
+    .legend-dash i { background: transparent; border-top: 1.5px dashed var(--purple); width: 0.9rem; height: 0; }
+    .legend-coral { color: var(--coral-deep); }
+    .legend-coral i, .legend-coral .swatch { background: var(--coral); }
+    .legend-slate .swatch { background: var(--slate); }
+    .legend-aqua .swatch { background: var(--aqua); }
+    .legend-purple .swatch { background: var(--purple); }
+    .legend-pink .swatch { background: var(--pink); }
+    .legend-sky .swatch { background: var(--sky); }
+
+    /* —— Floating Tooltip —— */
+    .viz-tooltip {
+      position: fixed;
+      z-index: 80;
+      pointer-events: none;
+      background: var(--slate);
+      color: #fcfaf7;
+      font-family: "Noto Sans", sans-serif;
+      font-size: 0.76rem;
+      line-height: 1.4;
+      padding: 0.5rem 0.7rem;
+      border-radius: 4px;
+      box-shadow: 0 6px 20px rgba(15, 32, 43, 0.22);
+      max-width: 17rem;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.12s ease, transform 0.12s ease;
+    }
+    .viz-tooltip.is-open {
+      opacity: 1;
+      transform: none;
+    }
+    .viz-tooltip strong {
+      font-family: Overpass, sans-serif;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.15rem;
+      color: #fff;
+    }
+    .viz-tooltip .tt-sub {
+      color: rgba(252, 250, 247, 0.76);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* —— Grid —— */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 2.5rem;
+      align-items: start;
+    }
+    .pie-block { display: flex; flex-direction: column; gap: 1rem; align-items: stretch; }
+    #chart-pie { display: flex; justify-content: center; }
+    .pie-legend { list-style: none; font-size: 0.88rem; }
+    .pie-legend li {
+      display: grid;
+      grid-template-columns: 0.6rem 1fr auto;
+      gap: 0.65rem;
+      align-items: center;
+      padding: 0.45rem 0.35rem;
+      border-bottom: 1px solid var(--line);
+      cursor: pointer;
+      transition: background 0.14s ease;
+    }
+    .pie-legend li:hover,
+    .pie-legend li.is-hl { background: rgba(15, 32, 43, 0.04); }
+    .pie-legend li:last-child { border-bottom: 0; }
+    .pie-legend .dot { width: 0.6rem; height: 0.6rem; }
+    .pie-legend .val { font-variant-numeric: tabular-nums; color: var(--muted); }
+
+    /* —— Lists —— */
+    .hypotheses { list-style: none; counter-reset: h; }
+    .hypotheses > li {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: 0.9rem;
+      padding: 1.35rem 0;
+      border-top: 1px solid var(--line);
+      counter-increment: h;
+    }
+    .hypotheses > li:last-child { border-bottom: 1px solid var(--line); }
+    .hypotheses > li::before {
+      content: counter(h, decimal-leading-zero);
+      font-family: Overpass, sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      color: var(--coral-deep);
+      padding-top: 0.2rem;
+    }
+    .hypotheses .lead {
+      font-family: Overpass, sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: -0.015em;
+      line-height: 1.35;
+      margin-bottom: 0.45rem;
+    }
+    .hypotheses .support {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    .hypotheses .support::before {
+      content: "Soporte: ";
+      font-weight: 600;
+      color: var(--slate);
+    }
+
+    .steps { list-style: none; counter-reset: s; }
+    .steps > li {
+      display: grid;
+      grid-template-columns: 2.2rem 1fr;
+      gap: 0.9rem;
+      padding: 1.4rem 0;
+      border-top: 1px solid var(--line);
+      counter-increment: s;
+    }
+    .steps > li:last-child { border-bottom: 1px solid var(--line); }
+    .steps > li::before {
+      content: counter(s, decimal-leading-zero);
+      font-family: Overpass, sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--coral-deep);
+      padding-top: 0.15rem;
+    }
+    .steps h3 {
+      font-family: Overpass, sans-serif;
+      font-weight: 600;
+      font-size: 1.08rem;
+      letter-spacing: -0.015em;
+      margin-bottom: 0.35rem;
+    }
+    .steps p { color: var(--muted); font-size: 0.98rem; }
+
+    /* —— Footer —— */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 2rem 0 3.5rem;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--faint);
+    }
+
+    @media (max-width: 820px) {
+      .toc {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+        mask-image: linear-gradient(90deg, #000 85%, transparent);
+        padding-block: 0.2rem;
+      }
+      .toc::-webkit-scrollbar { display: none; }
+      .topnav-inner { flex-wrap: nowrap; }
+      .grid { grid-template-columns: 1fr; gap: 1.75rem; }
+      .kpis { grid-template-columns: 1fr 1fr; }
+      .props div { grid-template-columns: 1fr; gap: 0.2rem; padding: 0.75rem 0; }
+      .funnel-row { grid-template-columns: 1fr auto; }
+      .funnel-track { grid-column: 1 / -1; order: 3; }
+      .sec-head { grid-template-columns: 1fr; gap: 0.25rem; }
+      .sec-index { padding-top: 0; }
+      .sec-caption { grid-column: 1; margin-top: 0.35rem; }
+      .heatmap-hours .h-cell span { display: none; }
+      .topnav-title { max-width: 9.5rem; overflow: hidden; text-overflow: ellipsis; }
+    }
+
+    @media (max-width: 540px) {
+      .kpis { grid-template-columns: 1fr; }
+      table { font-size: 0.8rem; min-width: 36rem; }
+      th, td { padding: 0.55rem 0.65rem; }
+      th:first-child, td:first-child { padding-left: 0; }
+      th:last-child, td:last-child { padding-right: 0; }
+      td:first-child { overflow-wrap: normal; }
+    }
+
+    @media print {
+      .topnav, .skip, .viz-tooltip { display: none; }
+      body { background: #fff; }
+      section { break-inside: avoid; opacity: 1 !important; transform: none !important; }
+      html { scroll-padding-top: 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <nav class="topnav" aria-label="Secciones">
+    <div class="wrap topnav-inner">
+      <a class="topnav-title" href="#inicio">Sucursal Virtual</a>
+      <div class="toc">
+        <a href="#alcance">Alcance</a>
+        <a href="#comparacion">28 días</a>
+        <a href="#tendencia">Tendencia</a>
+        <a href="#momentos">Tres momentos</a>
+        <a href="#dias">Días y horas</a>
+        <a href="#rutas">Rutas</a>
+        <a href="#eventos">Eventos y canales</a>
+        <a href="#hipotesis">Hipótesis</a>
+        <a href="#recomendaciones">Recomendaciones</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero wrap" id="inicio">
+    <hr class="hero-rule">
+    <h1>Sucursal Virtual</h1>
+    <p class="hero-period">27 ago–24 nov 2026</p>
+    <p class="lede">En 90 días la Sucursal Virtual registró 3.003.512 vistas oficiales (2.990.840 de clientes al excluir tráfico interno y <code>/404</code>). Casi la mitad del portal se concentra en Reembolsos (47,8%, con 92,6% de término entre paso 1 y paso 6), pero el único evento clave configurado (<code>purchase</code>) marca cero.</p>
+  </header>
+
+  <main id="contenido">
+    <section id="alcance" class="reveal">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-index">01</p>
+          <h2>Alcance y uso de reembolsos</h2>
+        </div>
+        <dl class="props">
+          <div><dt>Período</dt><dd>27 ago 2026 – 24 nov 2026 (90 días completos)</dd></div>
+          <div><dt>Sitio y propiedad</dt><dd><code>sucursalvirtual.somosesencial.cl</code> · Sucursal Virtual - Cliente | GA4 | Prod (317519010)</dd></div>
+          <div><dt>Totales oficiales (API)</dt><dd>3.003.512 vistas · 62.269 usuarios activos · 217.163 sesiones · 5 min 46 s por usuario</dd></div>
+          <div><dt>Vista solo clientes</dt><dd>2.990.840 vistas (99,6%) · 62.193 usuarios activos · 216.020 sesiones · 5 min 43 s por usuario · 75,1% engagement</dd></div>
+          <div><dt>Tráfico interno aislado</dt><dd>12.560 vistas (0,42%) en <code>/admin*</code>, <code>/mantenedor*</code>, <code>/clientes*</code>, <code>/solicitudes/buscador-solicitudes</code> y referidos de Microsoft (134 usuarios, 24 min 11 s/usuario)</dd></div>
+          <div><dt>Eventos clave</dt><dd>0 registrados en 90 días (solo <code>purchase</code> está configurado y marca 0; los eventos reales de gestión no son eventos clave)</dd></div>
+        </dl>
+
+        <div class="kpis" id="kpi-strip">
+          <div class="kpi">
+            <div class="kpi-label">Vistas solo clientes</div>
+            <div class="kpi-val" data-count="2990840">2.990.840</div>
+            <div class="kpi-sub">99,6% del total oficial de la propiedad</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Usuarios activos clientes</div>
+            <div class="kpi-val" data-count="62193">62.193</div>
+            <div class="kpi-sub">216.020 sesiones (5 min 43 s/usuario)</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Tasa de engagement</div>
+            <div class="kpi-val">75,1%</div>
+            <div class="kpi-sub">47,8% de las vistas ocurre en <code>/reembolsos*</code></div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Cierre de reembolso (P6)</div>
+            <div class="kpi-val" data-count="21686">21.686</div>
+            <div class="kpi-sub">Usuarios únicos (92,6% respecto al paso 1)</div>
+          </div>
+        </div>
+
+        <p class="prose">A diferencia del Flujo de Venta, el uso interno dentro de Sucursal Virtual representa menos del 0,5% del volumen total, pero tiene una permanencia cuatro veces mayor (24 min 11 s por usuario). El detalle que sigue excluye ese tráfico administrativo y <code>/404</code> (131 vistas). La columna vertebral del portal es el envío de reembolsos, cuyo embudo de seis pasos muestra usuarios únicos reales de clientes por etapa.</p>
+
+        <div class="funnel" id="chart-funnel" aria-label="Embudo de creación de reembolso en 90 días">
+          <div class="funnel-row is-primary" data-tip-title="Paso 1 · Inicio (/reembolsos/creacion/1)" data-tip-sub="23.408 usuarios únicos · 167.440 vistas · 10 s promedio">
+            <div class="funnel-name">Paso 1 · Inicio (/reembolsos/creacion/1)<span class="funnel-meta">167.440 vistas · 10 s promedio</span></div>
+            <div class="funnel-track"><div class="funnel-fill" style="width:100%"></div></div>
+            <div class="funnel-val">23.408</div>
+          </div>
+          <div class="funnel-row" data-tip-title="Paso 2 (/reembolsos/creacion/2)" data-tip-sub="23.250 usuarios (99,3% del P1) · 178.950 vistas · 13 s promedio">
+            <div class="funnel-name">Paso 2 (/reembolsos/creacion/2)<span class="funnel-meta">178.950 vistas · 99,3% del paso 1</span></div>
+            <div class="funnel-track"><div class="funnel-fill" style="width:99.3%"></div></div>
+            <div class="funnel-val">23.250</div>
+          </div>
+          <div class="funnel-row" data-tip-title="Paso 3 (/reembolsos/creacion/3)" data-tip-sub="23.019 usuarios (98,3% del P1) · 184.643 vistas · 26 s promedio">
+            <div class="funnel-name">Paso 3 (/reembolsos/creacion/3)<span class="funnel-meta">184.643 vistas · 98,3% del paso 1</span></div>
+            <div class="funnel-track"><div class="funnel-fill" style="width:98.3%"></div></div>
+            <div class="funnel-val">23.019</div>
+          </div>
+          <div class="funnel-row is-primary" data-tip-title="Paso 4 · Documentos (/reembolsos/creacion/4)" data-tip-sub="22.945 usuarios (98,0% del P1) · 194.079 vistas · 1 min 32 s promedio (mayor fricción)">
+            <div class="funnel-name">Paso 4 · Documentos (/reembolsos/creacion/4)<span class="funnel-meta">194.079 vistas · 1 min 32 s promedio (mayor fricción)</span></div>
+            <div class="funnel-track"><div class="funnel-fill" style="width:98.0%"></div></div>
+            <div class="funnel-val">22.945</div>
+          </div>
+          <div class="funnel-row" data-tip-title="Paso 5 (/reembolsos/creacion/5)" data-tip-sub="22.057 usuarios (94,2% del P1) · 168.319 vistas · 17 s promedio">
+            <div class="funnel-name">Paso 5 (/reembolsos/creacion/5)<span class="funnel-meta">168.319 vistas · 94,2% del paso 1</span></div>
+            <div class="funnel-track"><div class="funnel-fill" style="width:94.2%"></div></div>
+            <div class="funnel-val">22.057</div>
+          </div>
+          <div class="funnel-row is-primary" data-tip-title="Paso 6 · Confirmación (/reembolsos/creacion/6)" data-tip-sub="21.686 usuarios (92,6% del P1) · 157.566 vistas · 16 s promedio">
+            <div class="funnel-name">Paso 6 · Confirmación (/reembolsos/creacion/6)<span class="funnel-meta">157.566 vistas · 92,6% de término</span></div>
+            <div class="funnel-track"><div class="funnel-fill" style="width:92.6%"></div></div>
+            <div class="funnel-val">21.686</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="comparacion" class="reveal">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-index">02</p>
+          <h2>Qué mejoró y qué empeoró</h2>
+          <p class="sec-caption">28 días recientes (28 oct–24 nov) frente a los 28 anteriores (30 sep–27 oct). Cifras oficiales y vista aislada de clientes.</p>
+        </div>
+        <p class="prose">En el último mes la Sucursal Virtual creció de forma estable en vistas (+3,7% clientes), sesiones (+4,8%) y usuarios nuevos (+5,1%), manteniendo casi intacto el tiempo medio por usuario (4 min 8 s). El impulso viene de Reembolsos (+5,6%), Mi Plan (+9,9%, traccionado por el estreno de <code>/mi-plan/registro-tea</code> y alzas en desafiliación) y Hospitalización (+7,4%), mientras cayeron Cotizaciones y pagos (−7,8%) y Contacto (−17,8%).</p>
+        <div class="table-scroll">
+          <table class="sortable">
+            <thead>
+              <tr><th>Métrica</th><th class="num">30 sep–27 oct</th><th class="num">28 oct–24 nov</th><th class="num">Cambio</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Vistas totales (oficial API)</td><td class="num" data-sort="933910">933.910</td><td class="num" data-sort="966536">966.536</td><td class="num delta-up" data-sort="3.5">+3,5%</td></tr>
+              <tr><td class="emph">Vistas solo clientes</td><td class="num" data-sort="928634">928.634</td><td class="num emph" data-sort="962754">962.754</td><td class="num delta-up" data-sort="3.7">+3,7%</td></tr>
+              <tr><td>Usuarios activos (oficial API)</td><td class="num" data-sort="27087">27.087</td><td class="num" data-sort="27714">27.714</td><td class="num delta-up" data-sort="2.3">+2,3%</td></tr>
+              <tr><td class="emph">Usuarios activos solo clientes</td><td class="num" data-sort="27048">27.048</td><td class="num emph" data-sort="27655">27.655</td><td class="num delta-up" data-sort="2.2">+2,2%</td></tr>
+              <tr><td>Usuarios nuevos solo clientes</td><td class="num" data-sort="14155">14.155</td><td class="num" data-sort="14878">14.878</td><td class="num delta-up" data-sort="5.1">+5,1%</td></tr>
+              <tr><td>Sesiones solo clientes</td><td class="num" data-sort="69189">69.189</td><td class="num" data-sort="72541">72.541</td><td class="num delta-up" data-sort="4.8">+4,8%</td></tr>
+              <tr><td>Tiempo medio/usuario (clientes)</td><td class="num" data-sort="248.9">4 min 9 s</td><td class="num" data-sort="248.3">4 min 8 s</td><td class="num" data-sort="-0.3">−0,3%</td></tr>
+              <tr><td>Tasa de engagement (clientes)</td><td class="num" data-sort="74.4">74,4%</td><td class="num" data-sort="73.9">73,9%</td><td class="num" data-sort="-0.7">−0,7%</td></tr>
+              <tr><td>Eventos clave (<code>purchase</code>)</td><td class="num" data-sort="0">0</td><td class="num" data-sort="0">0</td><td class="num" data-sort="0">0,0%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-scroll">
+          <table class="sortable">
+            <thead>
+              <tr><th>Sección o módulo del portal</th><th class="num">28 días previos</th><th class="num">Últimos 28</th><th class="num">Cambio</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="emph">Reembolsos (<code>/reembolsos*</code>)</td><td class="num" data-sort="442750">442.750</td><td class="num emph" data-sort="467685">467.685</td><td class="num delta-up" data-sort="5.6">+5,6%</td></tr>
+              <tr><td>Inicio (<code>/</code>)</td><td class="num" data-sort="200465">200.465</td><td class="num" data-sort="204227">204.227</td><td class="num delta-up" data-sort="1.9">+1,9%</td></tr>
+              <tr><td>Mi Plan (<code>/mi-plan*</code>)</td><td class="num" data-sort="32222">32.222</td><td class="num" data-sort="35404">35.404</td><td class="num delta-up" data-sort="9.9">+9,9%</td></tr>
+              <tr><td>Mis datos y actualización</td><td class="num" data-sort="28083">28.083</td><td class="num" data-sort="29799">29.799</td><td class="num delta-up" data-sort="6.1">+6,1%</td></tr>
+              <tr><td>Hospitalización</td><td class="num" data-sort="9233">9.233</td><td class="num" data-sort="9915">9.915</td><td class="num delta-up" data-sort="7.4">+7,4%</td></tr>
+              <tr><td>Beneficios (<code>/beneficios*</code>)</td><td class="num" data-sort="11915">11.915</td><td class="num" data-sort="11849">11.849</td><td class="num" data-sort="-0.6">−0,6%</td></tr>
+              <tr><td>Licencias médicas</td><td class="num" data-sort="22885">22.885</td><td class="num" data-sort="22487">22.487</td><td class="num" data-sort="-1.7">−1,7%</td></tr>
+              <tr><td>GES y CAEC (<code>/ges-caec*</code>)</td><td class="num" data-sort="23736">23.736</td><td class="num" data-sort="23311">23.311</td><td class="num" data-sort="-1.8">−1,8%</td></tr>
+              <tr><td>Certificados</td><td class="num" data-sort="8853">8.853</td><td class="num" data-sort="8622">8.622</td><td class="num" data-sort="-2.6">−2,6%</td></tr>
+              <tr><td>Productos adicionales</td><td class="num" data-sort="7674">7.674</td><td class="num" data-sort="7402">7.402</td><td class="num" data-sort="-3.5">−3,5%</td></tr>
+              <tr><td>Cotizaciones y pagos</td><td class="num" data-sort="43810">43.810</td><td class="num" data-sort="40412">40.412</td><td class="num delta-down" data-sort="-7.8">−7,8%</td></tr>
+              <tr><td>Tráfico interno (<code>/admin</code> y Microsoft)</td><td class="num" data-sort="5251">5.251</td><td class="num" data-sort="3764">3.764</td><td class="num" data-sort="-28.3">−28,3%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="prose">Dentro de las rutas específicas destacan tres movimientos: <code>/mi-plan/registro-tea</code> saltó de 9 a 2.163 vistas, <code>/actualizacion-datos/cuenta-bancaria/agregar</code> subió +23,3% (1.785 → 2.201) y <code>/mi-plan/desafiliacion</code> aumentó +13,9% (1.588 → 1.809, junto con +12,3% en el evento <code>flujo_desafiliacion</code>). En contraste, <code>/cotizaciones/pagar</code> bajó −10,3% y <code>/pagos</code> −10,0%.</p>
+      </div>
+    </section>
+
+    <section id="tendencia" class="reveal">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-index">03</p>
+          <h2>Tendencia diaria</h2>
+          <p class="sec-caption">Vistas diarias de clientes (sin tráfico interno ni <code>/404</code>) y, en punteado, visitas al paso final de reembolso (<code>/reembolsos/creacion/6</code>). Haz clic en la leyenda para mostrar u ocultar series.</p>
+        </div>
+        <div class="chart-legend" id="trend-legend">
+          <button type="button" class="legend-btn legend-coral" data-series="views" aria-pressed="true"><i></i>Vistas clientes (eje izq.)</button>
+          <button type="button" class="legend-btn legend-dash" data-series="events" aria-pressed="true"><i></i>Paso 6 reembolso (eje der.)</button>
+        </div>
+        <div class="chart" id="chart-trend" role="img" aria-label="Tendencia diaria de vistas de clientes y paso 6 de reembolso entre el 27 de agosto y el 24 de noviembre de 2026"></div>
+        <p class="prose">La Sucursal Virtual opera con un pulso semanal muy marcado y sin brechas de medición: los lunes lideran el volumen y los cambios de mes amplifican los envíos de reembolsos (31 de agosto con 64.092 vistas, 30 de septiembre con 56.130 y el techo del período el lunes 2 de noviembre con 64.767 vistas y 3.328 pasos finales de reembolso). Los mínimos coinciden con Fiestas Patrias (18 de septiembre, 5.510 vistas) y sábados (21 de noviembre, 8.283 vistas).</p>
+      </div>
+    </section>
+
+    <section id="momentos" class="reveal">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-index">04</p>
+          <h2>Tres momentos de la semana</h2>
+          <p class="sec-caption">Peso porcentual de cada día en una semana tipo de clientes, 27 ago–24 nov 2026. El miércoles aparece 12 veces; los demás días, 13.</p>
+        </div>
+        <div class="chart-legend" id="moments-legend">
+          <button type="button" class="legend-btn legend-slate" data-idx="0" aria-pressed="true"><span class="swatch"></span>Inicio (/)</button>
+          <button type="button" class="legend-btn legend-coral" data-idx="1" aria-pressed="true"><span class="swatch"></span>Reembolsos (/reembolsos*)</button>
+          <button type="button" class="legend-btn legend-aqua" data-idx="2" aria-pressed="true"><span class="swatch"></span>Cotizaciones y pagos</button>
+        </div>
+        <div class="chart" id="chart-moments" role="img" aria-label="Peso porcentual por día de la semana para Inicio, Reembolsos y Cotizaciones y pagos"></div>
+        <div class="table-scroll">
+          <table class="sortable">
+            <thead>
+              <tr><th>Día</th><th class="num">Inicio /</th><th class="num">%</th><th class="num">Reembolsos</th><th class="num">%</th><th class="num">Pagos</th><th class="num">%</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="emph">Lunes</td><td class="num emph" data-sort="10627">10.627</td><td class="num emph" data-sort="20.7">20,7%</td><td class="num emph" data-sort="22707">22.707</td><td class="num emph" data-sort="20.3">20,3%</td><td class="num" data-sort="2000">2.000</td><td class="num" data-sort="19.1">19,1%</td></tr>
+              <tr><td>Martes</td><td class="num" data-sort="10381">10.381</td><td class="num" data-sort="20.3">20,3%</td><td class="num" data-sort="22471">22.471</td><td class="num" data-sort="20.1">20,1%</td><td class="num emph" data-sort="2111">2.111</td><td class="num emph" data-sort="20.2">20,2%</td></tr>
+              <tr><td>Miércoles</td><td class="num" data-sort="9717">9.717</td><td class="num" data-sort="19.0">19,0%</td><td class="num" data-sort="21078">21.078</td><td class="num" data-sort="18.9">18,9%</td><td class="num" data-sort="1943">1.943</td><td class="num" data-sort="18.5">18,5%</td></tr>
+              <tr><td>Jueves</td><td class="num" data-sort="8784">8.784</td><td class="num" data-sort="17.1">17,1%</td><td class="num" data-sort="18181">18.181</td><td class="num" data-sort="16.3">16,3%</td><td class="num" data-sort="1852">1.852</td><td class="num" data-sort="17.7">17,7%</td></tr>
+              <tr><td>Viernes</td><td class="num" data-sort="6923">6.923</td><td class="num" data-sort="13.5">13,5%</td><td class="num" data-sort="15026">15.026</td><td class="num" data-sort="13.5">13,5%</td><td class="num" data-sort="1486">1.486</td><td class="num" data-sort="14.2">14,2%</td></tr>
+              <tr><td>Sábado</td><td class="num" data-sort="2282">2.282</td><td class="num" data-sort="4.5">4,5%</td><td class="num" data-sort="5374">5.374</td><td class="num" data-sort="4.8">4,8%</td><td class="num" data-sort="577">577</td><td class="num" data-sort="5.5">5,5%</td></tr>
+              <tr><td>Domingo</td><td class="num" data-sort="2512">2.512</td><td class="num" data-sort="4.9">4,9%</td><td class="num" data-sort="6798">6.798</td><td class="num" data-sort="6.1">6,1%</td><td class="num" data-sort="509">509</td><td class="num" data-sort="4.9">4,9%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th>Área del portal</th><th>Mejor día</th><th>Peor día</th><th class="num">Lun–vie</th><th class="num">Fin de semana</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Inicio (<code>/</code>)</td><td>Lunes, 10.627/día (20,7%)</td><td>Sábado, 2.282 (4,5%)</td><td class="num">90,6%</td><td class="num">9,4%</td></tr>
+              <tr><td>Reembolsos (<code>/reembolsos*</code>)</td><td>Lunes, 22.707/día (20,3%)</td><td>Sábado, 5.374 (4,8%)</td><td class="num">89,1%</td><td class="num">10,9%</td></tr>
+              <tr><td>Cotizaciones y pagos</td><td>Martes, 2.111/día (20,2%)</td><td>Domingo, 509 (4,9%)</td><td class="num">89,6%</td><td class="num">10,4%</td></tr>
+              <tr><td>Licencias médicas (ref.)</td><td>Lunes, 1.151/día (20,5%)</td><td>Domingo, 228 (4,1%)</td><td class="num">91,7%</td><td class="num">8,3%</td></tr>
+              <tr><td>Certificados (ref.)</td><td>Martes, 466/día (21,2%)</td><td>Sábado, 104 (4,7%)</td><td class="num">90,5%</td><td class="num">9,5%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="prose">A diferencia del sitio público, casi nueve de cada diez vistas de Sucursal Virtual suceden entre lunes y viernes. El lunes encabeza Inicio y Reembolsos; el martes concentra los pagos (20,2%) y la descarga de certificados (21,2%). En fin de semana aparece una diferencia clara de intención: Cotizaciones y pagos rinde más el sábado que el domingo, mientras que Reembolsos repunta el domingo (6.798 vistas/día frente a 5.374 el sábado).</p>
+      </div>
+    </section>
+    <section id="dias" class="reveal">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-index">05</p>
+          <h2>Días y horas</h2>
+          <p class="sec-caption">Solo tráfico de clientes. En áreas, promedio de vistas por día; en horas, acumulado de 90 días en zona de Chile.</p>
+        </div>
+
+        <div class="callout">
+          <strong>Mañana de oficina de lunes a jueves, y segundo aire el domingo a las 21 h</strong>
+          <p>De lunes a jueves el portal alcanza su mayor actividad entre las 9 y las 17 h (70,0% del tráfico de esos días, con techo entre 11 y 12 h). El sábado es el día más bajo y más móvil (47,6% desde celular). El domingo cambia el patrón: el computador vuelve a 60,3% y el 35,6% de las vistas del día se concentra entre las 20 y las 23 h, con pico a las 21 h (18.269 vistas).</p>
+        </div>
+
+        <div class="segmented" role="tablist" aria-label="Vista del mapa de calor">
+          <span class="segmented-slider" aria-hidden="true"></span>
+          <button type="button" role="tab" aria-selected="true" data-view="secciones">Áreas del portal</button>
+          <button type="button" role="tab" aria-selected="false" data-view="horas">Hora del día</button>
+        </div>
+
+        <div id="heat-secciones" class="heat-panel"></div>
+        <div id="heat-horas" class="heat-panel" hidden></div>
+
+        <div class="grid">
+          <div>
+            <div class="chart-legend">
+              <span class="legend-sky"><span class="swatch"></span>Móvil &lt; 45%</span>
+              <span class="legend-coral"><span class="swatch"></span>Móvil ≥ 45% (Sáb)</span>
+            </div>
+            <div class="chart" id="chart-mobile" role="img" aria-label="Porcentaje de vistas móviles por día de la semana"></div>
+          </div>
+          <div class="table-scroll">
+            <table class="sortable">
+              <thead>
+                <tr><th>Día</th><th class="num">Vistas clientes/día</th><th class="num">Computador</th><th class="num">Celular</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Lunes</td><td class="num" data-sort="47735">47.735</td><td class="num" data-sort="69.2">69,2%</td><td class="num" data-sort="30.4">30,4%</td></tr>
+                <tr><td>Martes</td><td class="num" data-sort="47295">47.295</td><td class="num" data-sort="68.0">68,0%</td><td class="num" data-sort="31.6">31,6%</td></tr>
+                <tr><td>Miércoles</td><td class="num" data-sort="44055">44.055</td><td class="num" data-sort="67.4">67,4%</td><td class="num" data-sort="32.4">32,4%</td></tr>
+                <tr><td>Jueves</td><td class="num" data-sort="39223">39.223</td><td class="num" data-sort="67.1">67,1%</td><td class="num" data-sort="32.6">32,6%</td></tr>
+                <tr><td>Viernes</td><td class="num" data-sort="31474">31.474</td><td class="num" data-sort="64.5">64,5%</td><td class="num" data-sort="35.1">35,1%</td></tr>
+                <tr><td>Sábado</td><td class="num" data-sort="10902">10.902</td><td class="num" data-sort="51.8">51,8%</td><td class="num emph" data-sort="47.6">47,6%</td></tr>
+                <tr><td>Domingo</td><td class="num" data-sort="12770">12.770</td><td class="num" data-sort="60.3">60,3%</td><td class="num" data-sort="39.4">39,4%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="prose">A lo largo de la semana el computador domina la Sucursal Virtual (66,3% del total de vistas frente a 33,3% móvil), porque adjuntar boletas, descargar certificados y revisar licencias resulta más cómodo en escritorio. Solo el sábado el móvil casi empata (47,6% vs 51,8%).</p>
+      </div>
+    </section>
+
+    <section id="rutas" class="reveal">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-index">06</p>
+          <h2>Rutas más visitadas</h2>
+          <p class="sec-caption">90 días, excluyendo <code>/404</code> (131 vistas) y rutas internas. Todas las rutas envían el mismo <code>pageTitle</code> («Esencial - Grupo Alemana»).</p>
+        </div>
+        <div class="table-scroll">
+          <table class="sortable">
+            <thead>
+              <tr><th>Ruta</th><th class="num">Vistas</th><th class="num">Usuarios</th><th class="num">Tiempo/usuario</th><th>Rol en el portal</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>/</code></td><td class="num" data-sort="658909">658.909</td><td class="num" data-sort="59613">59.613</td><td class="num" data-sort="61">1 min 1 s</td><td>Inicio / resumen tras ingresar</td></tr>
+              <tr><td><code>/reembolsos</code></td><td class="num" data-sort="373010">373.010</td><td class="num" data-sort="31456">31.456</td><td class="num" data-sort="159">2 min 39 s</td><td>Bandeja e historial de reembolsos</td></tr>
+              <tr><td><code>/auth/callback</code></td><td class="num" data-sort="209522">209.522</td><td class="num" data-sort="51050">51.050</td><td class="num" data-sort="1">1 s</td><td>Retorno Auth0 tras login (infla vistas)</td></tr>
+              <tr><td><code>/reembolsos/creacion/4</code></td><td class="num" data-sort="194105">194.105</td><td class="num" data-sort="22946">22.946</td><td class="num" data-sort="92">1 min 32 s</td><td>Carga de documentos / boletas</td></tr>
+              <tr><td><code>/reembolsos/creacion/3</code></td><td class="num" data-sort="184669">184.669</td><td class="num" data-sort="23020">23.020</td><td class="num" data-sort="26">26 s</td><td>Paso 3 del flujo de reembolso</td></tr>
+              <tr><td><code>/reembolsos/creacion/2</code></td><td class="num" data-sort="178978">178.978</td><td class="num" data-sort="23256">23.256</td><td class="num" data-sort="13">13 s</td><td>Paso 2 del flujo de reembolso</td></tr>
+              <tr><td><code>/reembolsos/creacion/5</code></td><td class="num" data-sort="168335">168.335</td><td class="num" data-sort="22058">22.058</td><td class="num" data-sort="17">17 s</td><td>Paso 5 revisión antes de enviar</td></tr>
+              <tr><td><code>/reembolsos/creacion/1</code></td><td class="num" data-sort="167453">167.453</td><td class="num" data-sort="23414">23.414</td><td class="num" data-sort="10">10 s</td><td>Inicio creación de reembolso</td></tr>
+              <tr><td><code>/reembolsos/creacion/6</code></td><td class="num" data-sort="157582">157.582</td><td class="num" data-sort="21687">21.687</td><td class="num" data-sort="16">16 s</td><td>Confirmación de envío de reembolso</td></tr>
+              <tr><td><code>/mi-plan</code></td><td class="num" data-sort="89667">89.667</td><td class="num" data-sort="21245">21.245</td><td class="num" data-sort="58">58 s</td><td>Consulta de plan y coberturas</td></tr>
+              <tr><td><code>/logout</code></td><td class="num" data-sort="65963">65.963</td><td class="num" data-sort="26398">26.398</td><td class="num" data-sort="7">7 s</td><td>Cierre de sesión (+19,9% último mes)</td></tr>
+              <tr><td><code>/licencia-medica/historial</code></td><td class="num" data-sort="65699">65.699</td><td class="num" data-sort="7734">7.734</td><td class="num" data-sort="199">3 min 19 s</td><td>Seguimiento y pago de licencias</td></tr>
+              <tr><td><code>/cotizaciones/pagar</code></td><td class="num" data-sort="50300">50.300</td><td class="num" data-sort="9416">9.416</td><td class="num" data-sort="32">32 s</td><td>Pago de cotizaciones (−10,3% último mes)</td></tr>
+              <tr><td><code>/mis-datos</code></td><td class="num" data-sort="48805">48.805</td><td class="num" data-sort="11882">11.882</td><td class="num" data-sort="35">35 s</td><td>Ficha personal y datos de contacto</td></tr>
+              <tr><td><code>/cotizaciones/historial</code></td><td class="num" data-sort="35073">35.073</td><td class="num" data-sort="7972">7.972</td><td class="num" data-sort="91">1 min 31 s</td><td>Historial de cotizaciones</td></tr>
+              <tr><td><code>/pagos</code></td><td class="num" data-sort="32211">32.211</td><td class="num" data-sort="8051">8.051</td><td class="num" data-sort="44">44 s</td><td>Comprobantes y estado de pagos</td></tr>
+              <tr><td><code>/certificados</code></td><td class="num" data-sort="28165">28.165</td><td class="num" data-sort="9166">9.166</td><td class="num" data-sort="33">33 s</td><td>Descarga de certificados</td></tr>
+              <tr><td><code>/ges-caec</code></td><td class="num" data-sort="22475">22.475</td><td class="num" data-sort="5387">5.387</td><td class="num" data-sort="24">24 s</td><td>Portal de cobertura GES y CAEC</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="prose">Solo <code>/auth/callback</code> y <code>/logout</code> acumulan 275.485 vistas técnicas (9,2% del total del portal). En operación interna, <code>/solicitudes/buscador-solicitudes</code> sumó 2.758 vistas generadas por solo 79 usuarios (9 min 54 s por usuario) y <code>/admin/*</code> registró 301 vistas. Como error técnico menor, <code>/permission_error</code> apareció 9 veces (7 usuarios).</p>
+      </div>
+    </section>
+
+    <section id="eventos" class="reveal">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-index">07</p>
+          <h2>Eventos clave y canales</h2>
+          <p class="sec-caption">Auditoría de medición: <code>purchase</code> es el único evento clave configurado (0 disparos). Se muestran sesiones atribuidas por canal y eventos personalizados activos.</p>
+        </div>
+
+        <div class="grid">
+          <div class="pie-block">
+            <div id="chart-pie"></div>
+            <ul class="pie-legend" id="pie-legend"></ul>
+          </div>
+          <div class="table-scroll">
+            <table class="sortable">
+              <thead>
+                <tr><th>Fuente / medio (90 días)</th><th class="num">Sesiones</th><th class="num">Tiempo/usuario</th><th class="num">Engagement</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>(direct) / (none)</code></td><td class="num" data-sort="161757">161.757</td><td class="num" data-sort="292">4 min 52 s</td><td class="num" data-sort="74.1">74,1%</td></tr>
+                <tr><td><code>google / organic</code></td><td class="num" data-sort="40764">40.764</td><td class="num" data-sort="448">7 min 28 s</td><td class="num" data-sort="77.8">77,8%</td></tr>
+                <tr><td><code>somosesencial-sv.us.auth0.com / referral</code></td><td class="num" data-sort="9617">9.617</td><td class="num" data-sort="311">5 min 11 s</td><td class="num" data-sort="73.4">73,4%</td></tr>
+                <tr><td><code>bing / organic</code></td><td class="num" data-sort="3243">3.243</td><td class="num" data-sort="457">7 min 37 s</td><td class="num" data-sort="84.8">84,8%</td></tr>
+                <tr><td><code>sfmc / email</code></td><td class="num" data-sort="2914">2.914</td><td class="num" data-sort="177">2 min 57 s</td><td class="num" data-sort="67.7">67,7%</td></tr>
+                <tr><td><code>login.microsoftonline.com / referral</code> (interno)</td><td class="num" data-sort="1016">1.016</td><td class="num" data-sort="1854">30 min 54 s</td><td class="num" data-sort="77.4">77,4%</td></tr>
+                <tr><td><code>Unassigned / (not set)</code></td><td class="num" data-sort="806">806</td><td class="num" data-sort="97">1 min 37 s</td><td class="num" data-sort="0">0,0%</td></tr>
+                <tr><td><code>cl.search.yahoo.com / referral</code></td><td class="num" data-sort="619">619</td><td class="num" data-sort="474">7 min 54 s</td><td class="num" data-sort="81.1">81,1%</td></tr>
+                <tr><td><code>chatgpt.com / ai-assistant</code></td><td class="num" data-sort="40">40</td><td class="num" data-sort="192">3 min 12 s</td><td class="num" data-sort="72.5">72,5%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-scroll">
+          <table class="sortable">
+            <thead>
+              <tr><th>Evento personalizado / de gestión</th><th class="num">Últimos 28d</th><th class="num">90 días</th><th>Estado en GA4</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>purchase</code> (único evento clave configurado)</td><td class="num" data-sort="0">0</td><td class="num" data-sort="0">0</td><td>Configurado como clave, sin disparos</td></tr>
+              <tr><td><code>evento interactivo GA4</code></td><td class="num" data-sort="454286">454.286</td><td class="num" data-sort="1400845">1.400.845</td><td>Ruido genérico de interacción (sin granularidad)</td></tr>
+              <tr><td><code>movimiento</code></td><td class="num" data-sort="164954">164.954</td><td class="num" data-sort="530705">530.705</td><td>Ruido de tracking automático</td></tr>
+              <tr><td><code>ges</code></td><td class="num" data-sort="3901">3.901</td><td class="num" data-sort="11908">11.908</td><td>Activo, NO marcado como evento clave (−1,4%)</td></tr>
+              <tr><td><code>flujo_desafiliacion</code></td><td class="num" data-sort="2345">2.345</td><td class="num" data-sort="6984">6.984</td><td>Activo, NO marcado como evento clave (+12,3%)</td></tr>
+              <tr><td><code>activar_ges</code></td><td class="num" data-sort="1513">1.513</td><td class="num" data-sort="5164">5.164</td><td>Activo, NO marcado como evento clave (−8,4%)</td></tr>
+              <tr><td><code>rembolsos_18</code></td><td class="num" data-sort="1491">1.491</td><td class="num" data-sort="3794">3.794</td><td>Activo, solo 302 usuarios (+43,8%)</td></tr>
+              <tr><td><code>detalle_prod_adicionales</code></td><td class="num" data-sort="682">682</td><td class="num" data-sort="2471">2.471</td><td>Activo, NO marcado como evento clave (−22,6%)</td></tr>
+              <tr><td><code>datos_ppi</code></td><td class="num" data-sort="309">309</td><td class="num" data-sort="893">893</td><td>Activo, NO marcado como evento clave (+8,4%)</td></tr>
+              <tr><td><code>activacion_caec</code></td><td class="num" data-sort="168">168</td><td class="num" data-sort="453">453</td><td>Activo, NO marcado como evento clave (+36,6%)</td></tr>
+              <tr><td><code>activacion_cuenta</code></td><td class="num" data-sort="96">96</td><td class="num" data-sort="331">331</td><td>Activo, NO marcado como evento clave (+9,1%)</td></tr>
+              <tr><td><code>update_datos</code></td><td class="num" data-sort="27">27</td><td class="num" data-sort="66">66</td><td>Activo, NO marcado como evento clave (0,0%)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="prose">Los afiliados llegan sobre todo por acceso directo (73,5% de las sesiones atribuidas) y buscadores (20,3% orgánico en Google y Bing, con 7 min 34 s de permanencia). Sin embargo, el redireccionamiento de Auth0 (<code>somosesencial-sv.us.auth0.com</code>) captura 9.617 sesiones como referido propio y oculta su origen real; además <code>sfmc / email</code> creció +18,8% (888 → 1.055 sesiones) y <code>chatgpt.com</code> subió de 2 a 30 sesiones en el último mes.</p>
+      </div>
+    </section>
+
+    <section id="hipotesis" class="reveal">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-index">08</p>
+          <h2>Hipótesis y drivers</h2>
+          <p class="sec-caption">Cada hipótesis se respalda en los datos de GA4 del período 27 ago–24 nov 2026 y la comparación de 28 días.</p>
+        </div>
+        <ol class="hypotheses">
+          <li><div><p class="lead">Reembolsos es el motor real de recurrencia de la Sucursal Virtual y tiene una tasa de término muy alta.</p><p class="support"><code>/reembolsos*</code> genera 1.430.185 vistas (47,8% del portal limpio) y creció +5,6% en el último mes. Entre el paso 1 (23.408 usuarios) y el paso 6 (21.686 usuarios) completa el 92,6%, aunque el paso 4 de carga de documentos concentra la mayor demora (1 min 32 s promedio frente a 10–26 s en el resto).</p></div></li>
+          <li><div><p class="lead">Los afiliados usan el portal como trámite laboral entre lunes y jueves y preparan reembolsos el domingo en la noche.</p><p class="support">entre lunes y viernes ocurre el 89,1%–91,7% de las vistas según sección, con techo entre las 11 y las 12 h desde computador (66,3% del total). El domingo a las 21 h marca un segundo pico (18.269 vistas; 35,6% del día entre 20 y 23 h), impulsado por Reembolsos (+26,5% vs sábado).</p></div></li>
+          <li><div><p class="lead">La medición de conversión está desconectada de las tareas reales del afiliado.</p><p class="support">el único evento clave configurado es <code>purchase</code> y marca 0 en 90 días. No existen eventos clave para envío de reembolsos (157.566 vistas en paso 6), pago de cotizaciones (50.300 vistas en <code>/cotizaciones/pagar</code>), certificados (28.159 vistas) ni activación GES/CAEC, mientras <code>evento interactivo GA4</code> y <code>movimiento</code> suman 1,93 millones de disparos genéricos.</p></div></li>
+          <li><div><p class="lead">Auth0 y el título único en SPA distorsionan vistas y atribución de origen.</p><p class="support"><code>/auth/callback</code> (209.522 vistas) y <code>/logout</code> (65.963 vistas, +19,9%) suman 9,2% del tráfico total; <code>somosesencial-sv.us.auth0.com</code> aparece como tercer referente con 9.617 sesiones, y todas las rutas top reportan el mismo <code>pageTitle</code> («Esencial - Grupo Alemana»).</p></div></li>
+          <li><div><p class="lead">Aumentó el interés por desafiliación y actualización bancaria mientras bajó la visita a pagos.</p><p class="support">en los últimos 28 días subieron <code>flujo_desafiliacion</code> (+12,3%, 2.088 → 2.345), <code>/mi-plan/desafiliacion</code> (+13,9%) y <code>/actualizacion-datos/cuenta-bancaria/agregar</code> (+23,3%), mientras cayeron <code>/cotizaciones/pagar</code> (−10,3%) y <code>/pagos</code> (−10,0%).</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="recomendaciones" class="reveal">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-index">09</p>
+          <h2>Recomendaciones</h2>
+        </div>
+        <ol class="steps">
+          <li><div><h3>Definir eventos clave propios de la Sucursal Virtual y retirar purchase</h3><p>Reemplazar <code>purchase</code> (que nunca dispara en el portal privado) por eventos clave de trámite cumplido: envío de reembolso (<code>/reembolsos/creacion/6</code>), pago de cotizaciones confirmado, descarga de certificado, <code>activar_ges</code>, <code>activacion_caec</code> y <code>flujo_desafiliacion</code> (como alerta de retención).</p></div></li>
+          <li><div><h3>Agregar somosesencial-sv.us.auth0.com a la lista de referencias no deseadas</h3><p>Configurar la exclusión de referencias en GA4 para el dominio de Auth0 y para <code>login.microsoftonline.com</code>, de modo que las 9.617 sesiones que vuelven del login conserven su fuente original (Email, Organic Search o Sitio Público).</p></div></li>
+          <li><div><h3>Actualizar document.title por ruta y limpiar eventos genéricos</h3><p>Emitir títulos descriptivos en la SPA (Reembolsos, Mi Plan, Licencias, Pagos) para destrabar los informes estándar por título, y revisar si <code>evento interactivo GA4</code> y <code>movimiento</code> (1,93 M de eventos) aportan valor frente al límite de recolección.</p></div></li>
+          <li><div><h3>Optimizar la carga de documentos en el paso 4 de Reembolsos y en móvil</h3><p>El paso 4 (<code>/reembolsos/creacion/4</code>) toma 1 min 32 s por usuario (hasta 9 veces más que los otros pasos). Simplificar la subida de boletas desde celular ayuda a capturar mejor el uso de fin de semana (47,6% móvil el sábado).</p></div></li>
+          <li><div><h3>Monitorear de cerca el alza en flujo_desafiliacion (+12,3%) y /mi-plan/registro-tea</h3><p>Seguir la tasa de paso desde <code>/mi-plan/desafiliacion</code> (1.809 vistas en 28d) a <code>/mi-plan/desafiliacion/success</code> (1.836 vistas en 90d) para acciones de retención, y medir adopción del nuevo flujo <code>/mi-plan/registro-tea</code> (2.163 vistas en el último mes).</p></div></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      GA4 Data API · Cuenta Esencial · Propiedad Sucursal Virtual - Cliente | GA4 | Prod (317519010) · https://sucursalvirtual.somosesencial.cl · 27 ago 2026–24 nov 2026 · zona America/Santiago · Sin datos de /404 en el detalle. Vista de clientes excluye /admin*, /mantenedor*, /clientes*, /solicitudes/buscador-solicitudes, referidos de Microsoft y /404.
+    </div>
+  </footer>
+  <div class="viz-tooltip" id="viz-tooltip" role="status" aria-live="polite"></div>
+<script>
+(() => {
+  const nf = new Intl.NumberFormat('es-CL');
+  const pf = (v) => v.toFixed(1).replace('.', ',') + '%';
+  const DAYS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
+  const DAYS_FULL = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+
+  const DAILY_LABELS = ["27/8", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "17/9", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "8/10", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "29/10", "", "", "", "", "", "", "", "", "", "", "", "10/11", "", "", "", "", "", "", "", "", "", "", "", "", "", "24/11"];
+  const DAILY_FULL = ["Jue 27 ago", "Vie 28 ago", "Sáb 29 ago", "Dom 30 ago", "Lun 31 ago", "Mar 1 sep", "Mié 2 sep", "Jue 3 sep", "Vie 4 sep", "Sáb 5 sep", "Dom 6 sep", "Lun 7 sep", "Mar 8 sep", "Mié 9 sep", "Jue 10 sep", "Vie 11 sep", "Sáb 12 sep", "Dom 13 sep", "Lun 14 sep", "Mar 15 sep", "Mié 16 sep", "Jue 17 sep", "Vie 18 sep", "Sáb 19 sep", "Dom 20 sep", "Lun 21 sep", "Mar 22 sep", "Mié 23 sep", "Jue 24 sep", "Vie 25 sep", "Sáb 26 sep", "Dom 27 sep", "Lun 28 sep", "Mar 29 sep", "Mié 30 sep", "Jue 1 oct", "Vie 2 oct", "Sáb 3 oct", "Dom 4 oct", "Lun 5 oct", "Mar 6 oct", "Mié 7 oct", "Jue 8 oct", "Vie 9 oct", "Sáb 10 oct", "Dom 11 oct", "Lun 12 oct", "Mar 13 oct", "Mié 14 oct", "Jue 15 oct", "Vie 16 oct", "Sáb 17 oct", "Dom 18 oct", "Lun 19 oct", "Mar 20 oct", "Mié 21 oct", "Jue 22 oct", "Vie 23 oct", "Sáb 24 oct", "Dom 25 oct", "Lun 26 oct", "Mar 27 oct", "Mié 28 oct", "Jue 29 oct", "Vie 30 oct", "Sáb 31 oct", "Dom 1 nov", "Lun 2 nov", "Mar 3 nov", "Mié 4 nov", "Jue 5 nov", "Vie 6 nov", "Sáb 7 nov", "Dom 8 nov", "Lun 9 nov", "Mar 10 nov", "Mié 11 nov", "Jue 12 nov", "Vie 13 nov", "Sáb 14 nov", "Dom 15 nov", "Lun 16 nov", "Mar 17 nov", "Mié 18 nov", "Jue 19 nov", "Vie 20 nov", "Sáb 21 nov", "Dom 22 nov", "Lun 23 nov", "Mar 24 nov"];
+  const DAILY_VIEWS = [39997, 38009, 13775, 14572, 64092, 60874, 52810, 44708, 34320, 12172, 13455, 53397, 47684, 41756, 37658, 31649, 11661, 10587, 43876, 40983, 34023, 20536, 5510, 6538, 11140, 44461, 41961, 40085, 37621, 30318, 9924, 12645, 46783, 49872, 56130, 51684, 37652, 13828, 15866, 52765, 49028, 46541, 38836, 31103, 12130, 9616, 16388, 48808, 43543, 40199, 31886, 9941, 13404, 45437, 46072, 40260, 37811, 30966, 10253, 11925, 43460, 43102, 43482, 48482, 38497, 10847, 16220, 64767, 51783, 44362, 39174, 34632, 11469, 11849, 50979, 49651, 42374, 37376, 30717, 10903, 11727, 49772, 43170, 43292, 35811, 33907, 8283, 13006, 44380, 41842];
+  const DAILY_EVENTS = [2009, 1844, 653, 701, 3027, 3015, 2957, 2375, 1842, 726, 729, 2757, 2556, 2207, 1896, 1643, 726, 621, 2363, 1942, 1726, 992, 310, 362, 633, 2179, 2186, 2029, 2146, 1469, 478, 713, 2412, 2446, 2651, 2380, 2196, 849, 1061, 2965, 2638, 2624, 2064, 1540, 735, 553, 897, 2480, 2258, 1921, 1618, 484, 854, 2438, 2576, 1980, 1957, 1680, 570, 710, 2245, 2234, 2260, 2135, 2012, 548, 937, 3328, 2910, 2530, 2085, 1920, 573, 696, 2786, 2524, 2232, 1975, 1757, 635, 735, 2781, 2222, 2330, 1857, 1839, 445, 863, 2552, 2271];
+
+  const MOMENTS = [
+    { name: 'Inicio (/)', cls: 'slate', color: '#0f202b', vals: [20.7, 20.3, 19.0, 17.1, 13.5, 4.5, 4.9], raw: [10627, 10381, 9717, 8784, 6923, 2282, 2512] },
+    { name: 'Reembolsos (/reembolsos*)', cls: 'coral', color: '#ff585c', vals: [20.3, 20.1, 18.9, 16.3, 13.5, 4.8, 6.1], raw: [22707, 22471, 21078, 18181, 15026, 5374, 6798] },
+    { name: 'Cotizaciones y pagos', cls: 'aqua', color: '#1aa9a4', vals: [19.1, 20.2, 18.5, 17.7, 14.2, 5.5, 4.9], raw: [2000, 2111, 1943, 1852, 1486, 577, 509] }
+  ];
+
+  const HEAT_SECTIONS = [
+    { label: 'Reembolsos', vals: [22707, 22471, 21078, 18181, 15026, 5374, 6798] },
+    { label: 'Inicio /', vals: [10627, 10381, 9717, 8784, 6923, 2282, 2512] },
+    { label: 'Cotizaciones y pagos', vals: [2000, 2111, 1943, 1852, 1486, 577, 509] },
+    { label: 'Mi Plan', vals: [1613, 1572, 1456, 1280, 1044, 427, 456] },
+    { label: 'Mis datos', vals: [1371, 1455, 1344, 1185, 965, 360, 419] },
+    { label: 'GES y CAEC', vals: [1159, 1138, 1044, 961, 795, 344, 344] },
+    { label: 'Licencias médicas', vals: [1151, 1105, 1054, 922, 745, 250, 228] },
+    { label: 'Certificados', vals: [452, 466, 427, 368, 286, 104, 106] }
+  ];
+
+  const HEAT_HOURS = [[4147, 6473, 5435, 5725, 4893, 3271, 3198], [1591, 3050, 1548, 1935, 2503, 1722, 1542], [993, 1214, 1102, 952, 1254, 849, 430], [452, 594, 586, 720, 493, 324, 828], [512, 816, 645, 882, 472, 677, 367], [637, 979, 898, 800, 719, 360, 404], [1713, 2440, 2170, 2318, 2563, 616, 564], [4680, 7456, 6596, 6507, 5186, 2583, 1410], [17790, 20645, 18259, 19605, 15916, 6163, 3190], [40495, 41128, 36001, 37640, 33611, 9574, 5233], [52570, 51544, 46583, 45889, 36805, 11423, 7216], [60521, 54151, 49636, 49862, 43147, 12647, 8356], [58050, 55502, 47704, 48100, 42836, 12809, 8446], [43931, 40023, 36560, 37568, 33852, 9552, 9545], [43892, 42822, 35442, 36998, 29174, 7817, 6767], [47600, 47794, 39852, 37392, 31029, 7013, 7449], [46896, 47085, 40475, 36903, 28250, 7178, 9544], [40573, 44538, 36161, 34506, 21792, 7822, 9805], [32647, 33603, 26587, 25629, 17770, 7253, 10926], [27611, 26201, 22103, 19590, 16281, 6045, 11769], [26553, 23419, 19270, 16609, 12154, 6857, 14183], [28049, 26770, 22740, 17442, 11122, 7592, 18269], [24513, 23166, 20533, 15942, 10412, 6760, 15841], [14141, 13417, 11772, 10379, 6932, 4817, 10730]];
+
+  const MOBILE_PCT = [30.4, 31.6, 32.4, 32.6, 35.1, 47.6, 39.4];
+  const CHANNELS = [
+    { name: 'Direct', val: 161757, pct: 73.5, color: '#0f202b' },
+    { name: 'Organic Search', val: 44692, pct: 20.3, color: '#1aa9a4' },
+    { name: 'Referral (incl. Auth0)', val: 9745, pct: 4.4, color: '#ff585c' },
+    { name: 'Email y otros', val: 3790, pct: 1.7, color: '#6f5aa8' }
+  ];
+
+  const tip = document.getElementById('viz-tooltip');
+  let tipSticky = false;
+
+  function showTip(html, clientX, clientY, sticky = false) {
+    tip.innerHTML = html;
+    tip.classList.add('is-visible');
+    tipSticky = sticky;
+    const pad = 12;
+    const w = tip.offsetWidth || 200;
+    const h = tip.offsetHeight || 60;
+    let x = clientX + 14;
+    let y = clientY - h - 10;
+    if (x + w + pad > window.innerWidth) x = Math.max(pad, clientX - w - 14);
+    if (y < pad) y = clientY + 16;
+    if (y + h + pad > window.innerHeight) y = window.innerHeight - h - pad;
+    tip.style.left = x + 'px';
+    tip.style.top = y + 'px';
+  }
+
+  function hideTip(force = false) {
+    if (tipSticky && !force) return;
+    tip.classList.remove('is-visible');
+    tipSticky = false;
+  }
+
+  document.addEventListener('pointerdown', (e) => {
+    if (!e.target.closest('svg, .h-cell, .funnel-row, .pie-legend li')) hideTip(true);
+  });
+
+  function svgEl(tag, attrs = {}) {
+    const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+    for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+    return el;
+  }
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const kpiVals = document.querySelectorAll('.kpi-val[data-count]');
+  function animateKpi(el) {
+    if (el.dataset.done) return;
+    el.dataset.done = '1';
+    const target = Number(el.dataset.count);
+    if (reducedMotion || !Number.isFinite(target)) { el.textContent = nf.format(target); return; }
+    const dur = 680;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = nf.format(Math.round(target * eased));
+      if (t < 1) requestAnimationFrame(tick);
+      else el.textContent = nf.format(target);
+    }
+    requestAnimationFrame(tick);
+  }
+  if ('IntersectionObserver' in window) {
+    const kpiObs = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          en.target.querySelectorAll('.kpi-val[data-count]').forEach(animateKpi);
+          kpiObs.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    const strip = document.getElementById('kpi-strip');
+    if (strip) kpiObs.observe(strip);
+  } else {
+    kpiVals.forEach(animateKpi);
+  }
+
+  if ('IntersectionObserver' in window && !reducedMotion) {
+    const revObs = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          en.target.classList.add('is-visible');
+          revObs.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.01, rootMargin: '0px 0px -10px 0px' });
+    document.querySelectorAll('.reveal').forEach((s) => revObs.observe(s));
+  } else {
+    document.querySelectorAll('.reveal').forEach((s) => s.classList.add('is-visible'));
+  }
+
+  document.querySelectorAll('#chart-funnel .funnel-row').forEach((row) => {
+    row.addEventListener('pointerenter', (e) => {
+      showTip('<strong>' + row.dataset.tipTitle + '</strong>' + row.dataset.tipSub, e.clientX, e.clientY);
+    });
+    row.addEventListener('pointermove', (e) => {
+      if (tip.classList.contains('is-visible')) showTip('<strong>' + row.dataset.tipTitle + '</strong>' + row.dataset.tipSub, e.clientX, e.clientY);
+    });
+    row.addEventListener('pointerleave', () => hideTip());
+    row.addEventListener('click', (e) => {
+      showTip('<strong>' + row.dataset.tipTitle + '</strong>' + row.dataset.tipSub, e.clientX, e.clientY, true);
+    });
+  });
+
+  let trendVis = { views: true, events: true };
+  function drawTrend() {
+    const box = document.getElementById('chart-trend');
+    box.innerHTML = '';
+    const W = Math.max(320, Math.round(box.getBoundingClientRect().width) || 900);
+    const H = W < 540 ? 255 : 300;
+    const pad = { t: 18, r: W < 540 ? 40 : 48, b: 30, l: W < 540 ? 44 : 52 };
+    const iw = W - pad.l - pad.r;
+    const ih = H - pad.t - pad.b;
+    const n = DAILY_VIEWS.length;
+    const maxV = 70000;
+    const maxE = 3500;
+
+    const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, class: 'chart-svg' });
+    const xOf = (i) => pad.l + (i / (n - 1)) * iw;
+    const yV = (v) => pad.t + ih - (v / maxV) * ih;
+    const yE = (v) => pad.t + ih - (v / maxE) * ih;
+
+    [0, 17500, 35000, 52500, 70000].forEach((tk) => {
+      const y = yV(tk);
+      svg.appendChild(svgEl('line', { x1: pad.l, x2: W - pad.r, y1: y, y2: y, stroke: '#ebedf0', 'stroke-width': 1 }));
+      const lbl = svgEl('text', { x: pad.l - 7, y: y + 3.5, 'text-anchor': 'end', fill: '#6d7881', 'font-size': 10.5 });
+      lbl.textContent = tk === 0 ? '0' : (tk / 1000).toFixed(tk % 1000 === 0 ? 0 : 1).replace('.', ',') + 'k';
+      svg.appendChild(lbl);
+    });
+    [0, 1750, 3500].forEach((tk) => {
+      const y = yE(tk);
+      const lbl = svgEl('text', { x: W - pad.r + 7, y: y + 3.5, 'text-anchor': 'start', fill: '#6d7881', 'font-size': 10.5 });
+      lbl.textContent = nf.format(tk);
+      svg.appendChild(lbl);
+    });
+
+    DAILY_LABELS.forEach((lblText, idx) => {
+      if (!lblText) return;
+      const lbl = svgEl('text', {
+        x: xOf(idx),
+        y: H - 8,
+        'text-anchor': idx === 0 ? 'start' : (idx === 89 ? 'end' : 'middle'),
+        fill: '#6d7881',
+        'font-size': 10.5
+      });
+      lbl.textContent = DAILY_LABELS[idx];
+      svg.appendChild(lbl);
+    });
+
+    let viewsPath = '';
+    let areaPath = '';
+    let evPath = '';
+    DAILY_VIEWS.forEach((v, i) => {
+      const x = xOf(i).toFixed(1);
+      const y = yV(v).toFixed(1);
+      viewsPath += (i === 0 ? 'M' : 'L') + x + ' ' + y;
+      areaPath += (i === 0 ? 'M' : 'L') + x + ' ' + y;
+    });
+    areaPath += `L${xOf(n - 1).toFixed(1)} ${(pad.t + ih).toFixed(1)}L${xOf(0).toFixed(1)} ${(pad.t + ih).toFixed(1)}Z`;
+    DAILY_EVENTS.forEach((v, i) => {
+      evPath += (i === 0 ? 'M' : 'L') + xOf(i).toFixed(1) + ' ' + yE(v).toFixed(1);
+    });
+
+    if (trendVis.views) {
+      svg.appendChild(svgEl('path', { d: areaPath, fill: '#ff585c', 'fill-opacity': '0.10' }));
+      svg.appendChild(svgEl('path', { d: viewsPath, fill: 'none', stroke: '#ff585c', 'stroke-width': 2.2, 'stroke-linejoin': 'round' }));
+    }
+    if (trendVis.events) {
+      svg.appendChild(svgEl('path', { d: evPath, fill: 'none', stroke: '#0f202b', 'stroke-width': 1.75, 'stroke-dasharray': '4 3', 'stroke-linejoin': 'round' }));
+    }
+
+    const guide = svgEl('line', { x1: 0, x2: 0, y1: pad.t, y2: pad.t + ih, stroke: '#9aa3ac', 'stroke-width': 1, 'stroke-dasharray': '2 2', opacity: 0 });
+    const dotV = svgEl('circle', { r: 4.2, fill: '#ff585c', stroke: '#fff', 'stroke-width': 1.5, opacity: 0 });
+    const dotE = svgEl('circle', { r: 3.8, fill: '#0f202b', stroke: '#fff', 'stroke-width': 1.5, opacity: 0 });
+    svg.appendChild(guide);
+    svg.appendChild(dotV);
+    svg.appendChild(dotE);
+
+    const overlay = svgEl('rect', { x: pad.l, y: pad.t, width: iw, height: ih, fill: 'transparent', style: 'cursor:crosshair' });
+    svg.appendChild(overlay);
+
+    function showIdx(i, clientX, clientY, sticky = false) {
+      const x = xOf(i);
+      guide.setAttribute('x1', x); guide.setAttribute('x2', x); guide.setAttribute('opacity', 1);
+      if (trendVis.views) {
+        dotV.setAttribute('cx', x); dotV.setAttribute('cy', yV(DAILY_VIEWS[i])); dotV.setAttribute('opacity', 1);
+      } else dotV.setAttribute('opacity', 0);
+      if (trendVis.events) {
+        dotE.setAttribute('cx', x); dotE.setAttribute('cy', yE(DAILY_EVENTS[i])); dotE.setAttribute('opacity', 1);
+      } else dotE.setAttribute('opacity', 0);
+      const lines = [];
+      if (trendVis.views) lines.push('Vistas clientes: ' + nf.format(DAILY_VIEWS[i]));
+      if (trendVis.events) lines.push('Paso 6 reembolso: ' + nf.format(DAILY_EVENTS[i]));
+      showTip('<strong>' + DAILY_FULL[i] + '</strong>' + lines.join('<br>'), clientX, clientY, sticky);
+    }
+    function pickIndex(e) {
+      const r = svg.getBoundingClientRect();
+      const px = ((e.clientX - r.left) / r.width) * W;
+      const ratio = Math.max(0, Math.min(1, (px - pad.l) / iw));
+      return Math.round(ratio * (n - 1));
+    }
+    overlay.addEventListener('pointermove', (e) => showIdx(pickIndex(e), e.clientX, e.clientY));
+    overlay.addEventListener('pointerleave', () => {
+      guide.setAttribute('opacity', 0); dotV.setAttribute('opacity', 0); dotE.setAttribute('opacity', 0); hideTip();
+    });
+    overlay.addEventListener('click', (e) => showIdx(pickIndex(e), e.clientX, e.clientY, true));
+    box.appendChild(svg);
+  }
+
+  document.querySelectorAll('#trend-legend .legend-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const key = btn.dataset.series;
+      const next = !trendVis[key];
+      const other = key === 'views' ? 'events' : 'views';
+      if (!next && !trendVis[other]) return;
+      trendVis[key] = next;
+      btn.classList.toggle('is-off', !next);
+      btn.setAttribute('aria-pressed', String(next));
+      drawTrend();
+    });
+  });
+
+  let momVis = [true, true, true];
+  function drawMoments() {
+    const box = document.getElementById('chart-moments');
+    box.innerHTML = '';
+    const W = Math.max(320, Math.round(box.getBoundingClientRect().width) || 900);
+    const H = W < 540 ? 245 : 275;
+    const pad = { t: 16, r: 16, b: 32, l: 38 };
+    const iw = W - pad.l - pad.r;
+    const ih = H - pad.t - pad.b;
+    const active = MOMENTS.map((m, idx) => ({ ...m, idx })).filter((m) => momVis[m.idx]);
+    const maxY = 25;
+
+    const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, class: 'chart-svg' });
+    const yOf = (v) => pad.t + ih - (v / maxY) * ih;
+
+    [0, 5, 10, 15, 20, 25].forEach((tk) => {
+      const y = yOf(tk);
+      svg.appendChild(svgEl('line', { x1: pad.l, x2: W - pad.r, y1: y, y2: y, stroke: '#ebedf0', 'stroke-width': 1 }));
+      const lbl = svgEl('text', { x: pad.l - 7, y: y + 3.5, 'text-anchor': 'end', fill: '#6d7881', 'font-size': 10.5 });
+      lbl.textContent = tk + '%';
+      svg.appendChild(lbl);
+    });
+
+    const groupW = iw / 7;
+    const bw = Math.min(20, Math.max(8, (groupW * 0.68) / Math.max(1, active.length)));
+    const gap = 3;
+
+    DAYS.forEach((d, di) => {
+      const cx = pad.l + groupW * (di + 0.5);
+      const lbl = svgEl('text', { x: cx, y: H - 9, 'text-anchor': 'middle', fill: '#57626c', 'font-size': 11, 'font-weight': 500 });
+      lbl.textContent = d;
+      svg.appendChild(lbl);
+
+      const totalW = active.length * bw + (active.length - 1) * gap;
+      active.forEach((m, ai) => {
+        const val = m.vals[di];
+        const raw = m.raw[di];
+        const x = cx - totalW / 2 + ai * (bw + gap);
+        const y = yOf(val);
+        const h = Math.max(1, pad.t + ih - y);
+        const rect = svgEl('rect', {
+          x: x.toFixed(1),
+          y: y.toFixed(1),
+          width: bw.toFixed(1),
+          height: h.toFixed(1),
+          rx: 2,
+          fill: m.color,
+          style: 'cursor:pointer; transition: opacity .15s'
+        });
+        const html = `<strong>${DAYS_FULL[di]} · ${m.name}</strong>${pf(val)} de la semana (${nf.format(raw)} vistas/día)`;
+        rect.addEventListener('pointerenter', (e) => {
+          rect.setAttribute('opacity', '0.8');
+          showTip(html, e.clientX, e.clientY);
+        });
+        rect.addEventListener('pointermove', (e) => showTip(html, e.clientX, e.clientY));
+        rect.addEventListener('pointerleave', () => {
+          rect.setAttribute('opacity', '1');
+          hideTip();
+        });
+        rect.addEventListener('click', (e) => showTip(html, e.clientX, e.clientY, true));
+        svg.appendChild(rect);
+      });
+    });
+    box.appendChild(svg);
+  }
+
+  document.querySelectorAll('#moments-legend .legend-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const i = Number(btn.dataset.idx);
+      const next = !momVis[i];
+      if (!next && momVis.filter(Boolean).length <= 1) return;
+      momVis[i] = next;
+      btn.classList.toggle('is-off', !next);
+      btn.setAttribute('aria-pressed', String(next));
+      drawMoments();
+    });
+  });
+
+  function heatColor(t) {
+    const mix = (a, b, r) => Math.round(a + (b - a) * r);
+    const c1 = [247, 248, 250];
+    const c2 = [255, 224, 222];
+    const c3 = [255, 88, 92];
+    const c4 = [194, 42, 48];
+    if (t < 0.35) {
+      const r = t / 0.35;
+      return `rgb(${mix(c1[0], c2[0], r)},${mix(c1[1], c2[1], r)},${mix(c1[2], c2[2], r)})`;
+    } else if (t < 0.78) {
+      const r = (t - 0.35) / 0.43;
+      return `rgb(${mix(c2[0], c3[0], r)},${mix(c2[1], c3[1], r)},${mix(c2[2], c3[2], r)})`;
+    } else {
+      const r = (t - 0.78) / 0.22;
+      return `rgb(${mix(c3[0], c4[0], r)},${mix(c3[1], c4[1], r)},${mix(c3[2], c4[2], r)})`;
+    }
+  }
+
+  function buildHeatmap(containerId, rows, colTotals, rowNormalize) {
+    const host = document.getElementById(containerId);
+    const wrap = document.createElement('div');
+    wrap.className = 'heatmap-wrap';
+    const grid = document.createElement('div');
+    grid.className = 'heatmap ' + (rowNormalize ? 'heatmap-sections' : 'heatmap-hours');
+
+    const corner = document.createElement('div');
+    corner.className = 'h-row';
+    corner.textContent = rowNormalize ? 'Área del portal' : 'Hora';
+    grid.appendChild(corner);
+
+    DAYS.forEach((d, c) => {
+      const hd = document.createElement('div');
+      hd.className = 'h-col';
+      hd.dataset.col = c;
+      hd.textContent = d;
+      grid.appendChild(hd);
+    });
+
+    const globalMax = Math.max(...rows.flatMap((r) => r.vals));
+    rows.forEach((row, rIdx) => {
+      const rMax = Math.max(...row.vals);
+      const rSum = row.vals.reduce((a, b) => a + b, 0);
+      const rl = document.createElement('div');
+      rl.className = 'h-row';
+      rl.dataset.row = rIdx;
+      rl.textContent = row.label;
+      grid.appendChild(rl);
+
+      row.vals.forEach((v, cIdx) => {
+        const t = rowNormalize ? (rMax ? v / rMax : 0) : (globalMax ? v / globalMax : 0);
+        const cell = document.createElement('div');
+        cell.className = 'h-cell';
+        cell.tabIndex = 0;
+        cell.setAttribute('role', 'button');
+        cell.style.backgroundColor = heatColor(t);
+        if (t > 0.56) cell.style.color = '#fff';
+        cell.dataset.row = rIdx;
+        cell.dataset.col = cIdx;
+        const sp = document.createElement('span');
+        sp.textContent = v >= 10000 ? (v / 1000).toFixed(1).replace('.', ',') + 'k' : nf.format(v);
+        cell.appendChild(sp);
+
+        const share = rowNormalize
+          ? `${pf((v / rSum) * 100)} del área`
+          : `${pf((v / colTotals[cIdx]) * 100)} del ${DAYS_FULL[cIdx].toLowerCase()}`;
+        const tipHtml = `<strong>${row.label} · ${DAYS_FULL[cIdx]}</strong>${nf.format(v)} vistas · ${share}`;
+
+        cell.addEventListener('pointerenter', (e) => {
+          highlightHeat(grid, rIdx, cIdx);
+          showTip(tipHtml, e.clientX, e.clientY);
+        });
+        cell.addEventListener('pointermove', (e) => showTip(tipHtml, e.clientX, e.clientY));
+        cell.addEventListener('pointerleave', () => { clearHeat(grid); hideTip(); });
+        cell.addEventListener('click', (e) => {
+          highlightHeat(grid, rIdx, cIdx);
+          showTip(tipHtml, e.clientX, e.clientY, true);
+        });
+        grid.appendChild(cell);
+      });
+    });
+
+    wrap.appendChild(grid);
+    host.appendChild(wrap);
+    const scale = document.createElement('div');
+    scale.className = 'h-legend';
+    scale.innerHTML = '<span>Menor</span><span class="h-scale"></span><span>Mayor intensidad</span>' +
+      (rowNormalize ? '<span style="margin-left:auto">Intensidad normalizada por fila</span>' : '<span style="margin-left:auto">Escala global de 90 días</span>');
+    host.appendChild(scale);
+  }
+
+  function highlightHeat(grid, r, c) {
+    grid.querySelectorAll('.h-col, .h-row').forEach((el) => {
+      const mr = el.dataset.row !== undefined && Number(el.dataset.row) === r;
+      const mc = el.dataset.col !== undefined && Number(el.dataset.col) === c;
+      el.classList.toggle('is-hl', mr || mc);
+    });
+    grid.querySelectorAll('.h-cell').forEach((el) => {
+      const mr = Number(el.dataset.row) === r;
+      const mc = Number(el.dataset.col) === c;
+      el.classList.toggle('is-active', mr && mc);
+      el.classList.toggle('is-dim', !(mr || mc));
+    });
+  }
+  function clearHeat(grid) {
+    grid.querySelectorAll('.is-hl, .is-active, .is-dim').forEach((el) => el.classList.remove('is-hl', 'is-active', 'is-dim'));
+  }
+
+  buildHeatmap('heat-secciones', HEAT_SECTIONS, null, true);
+  const hourColTotals = DAYS.map((_, ci) => HEAT_HOURS.reduce((acc, r) => acc + r[ci], 0));
+  const hourRows = HEAT_HOURS.map((vals, h) => ({ label: String(h).padStart(2, '0') + ':00', vals }));
+  buildHeatmap('heat-horas', hourRows, hourColTotals, false);
+
+  const seg = document.querySelector('.segmented');
+  const slider = seg.querySelector('.segmented-slider');
+  const tabs = seg.querySelectorAll('button[role="tab"]');
+  function positionSlider(btn) {
+    slider.style.width = btn.offsetWidth + 'px';
+    slider.style.transform = `translateX(${btn.offsetLeft - 4}px)`;
+  }
+  tabs.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      tabs.forEach((b) => b.setAttribute('aria-selected', String(b === btn)));
+      document.getElementById('heat-secciones').hidden = btn.dataset.view !== 'secciones';
+      document.getElementById('heat-horas').hidden = btn.dataset.view !== 'horas';
+      positionSlider(btn);
+      hideTip(true);
+    });
+  });
+  positionSlider(seg.querySelector('button[aria-selected="true"]'));
+
+  function drawMobile() {
+    const box = document.getElementById('chart-mobile');
+    box.innerHTML = '';
+    const W = Math.max(280, Math.round(box.getBoundingClientRect().width) || 440);
+    const H = 230;
+    const pad = { t: 16, r: 12, b: 30, l: 38 };
+    const iw = W - pad.l - pad.r;
+    const ih = H - pad.t - pad.b;
+    const maxY = 60;
+    const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, class: 'chart-svg' });
+    const yOf = (v) => pad.t + ih - (v / maxY) * ih;
+
+    [0, 20, 40, 60].forEach((tk) => {
+      const y = yOf(tk);
+      svg.appendChild(svgEl('line', { x1: pad.l, x2: W - pad.r, y1: y, y2: y, stroke: '#ebedf0', 'stroke-width': 1 }));
+      const lbl = svgEl('text', { x: pad.l - 7, y: y + 3.5, 'text-anchor': 'end', fill: '#6d7881', 'font-size': 10.5 });
+      lbl.textContent = tk + '%';
+      svg.appendChild(lbl);
+    });
+
+    const slot = iw / 7;
+    const bw = Math.min(34, slot * 0.56);
+    MOBILE_PCT.forEach((v, i) => {
+      const cx = pad.l + slot * (i + 0.5);
+      const y = yOf(v);
+      const h = pad.t + ih - y;
+      const isWk = v >= 45;
+      const rect = svgEl('rect', {
+        x: (cx - bw / 2).toFixed(1),
+        y: y.toFixed(1),
+        width: bw.toFixed(1),
+        height: h.toFixed(1),
+        rx: 2,
+        fill: isWk ? '#ff585c' : '#3b90c0',
+        style: 'cursor:pointer'
+      });
+      const html = `<strong>${DAYS_FULL[i]}</strong>${pf(v)} de vistas desde celular`;
+      rect.addEventListener('pointerenter', (e) => { rect.setAttribute('opacity', '0.82'); showTip(html, e.clientX, e.clientY); });
+      rect.addEventListener('pointermove', (e) => showTip(html, e.clientX, e.clientY));
+      rect.addEventListener('pointerleave', () => { rect.setAttribute('opacity', '1'); hideTip(); });
+      rect.addEventListener('click', (e) => showTip(html, e.clientX, e.clientY, true));
+      svg.appendChild(rect);
+
+      const valLbl = svgEl('text', { x: cx, y: y - 5, 'text-anchor': 'middle', fill: '#0f202b', 'font-size': 10.5, 'font-weight': 600 });
+      valLbl.textContent = v.toFixed(1).replace('.', ',') + '%';
+      svg.appendChild(valLbl);
+
+      const xLbl = svgEl('text', { x: cx, y: H - 9, 'text-anchor': 'middle', fill: '#57626c', 'font-size': 11 });
+      xLbl.textContent = DAYS[i];
+      svg.appendChild(xLbl);
+    });
+    box.appendChild(svg);
+  }
+
+  function drawPie() {
+    const box = document.getElementById('chart-pie');
+    const legend = document.getElementById('pie-legend');
+    box.innerHTML = ''; legend.innerHTML = '';
+    const size = 216;
+    const cx = size / 2, cy = size / 2, R = 92, r = 56;
+    const total = CHANNELS.reduce((a, c) => a + c.val, 0);
+    const svg = svgEl('svg', { viewBox: `0 0 ${size} ${size}`, width: size, height: size, class: 'chart-svg', style: 'overflow:visible' });
+
+    const centerVal = svgEl('text', { x: cx, y: cy - 3, 'text-anchor': 'middle', fill: '#0f202b', 'font-size': 16, 'font-weight': 600 });
+    centerVal.textContent = '219.984';
+    const centerSub = svgEl('text', { x: cx, y: cy + 14, 'text-anchor': 'middle', fill: '#6d7881', 'font-size': 10.5 });
+    centerSub.textContent = 'sesiones';
+    svg.appendChild(centerVal);
+    svg.appendChild(centerSub);
+
+    let angle = -Math.PI / 2;
+    const slices = [];
+    const legItems = [];
+
+    function arcPath(a0, a1, rOut, rIn) {
+      const x0 = cx + rOut * Math.cos(a0), y0 = cy + rOut * Math.sin(a0);
+      const x1 = cx + rOut * Math.cos(a1), y1 = cy + rOut * Math.sin(a1);
+      const x2 = cx + rIn * Math.cos(a1), y2 = cy + rIn * Math.sin(a1);
+      const x3 = cx + rIn * Math.cos(a0), y3 = cy + rIn * Math.sin(a0);
+      const large = a1 - a0 > Math.PI ? 1 : 0;
+      return `M${x0.toFixed(2)} ${y0.toFixed(2)} A${rOut} ${rOut} 0 ${large} 1 ${x1.toFixed(2)} ${y1.toFixed(2)} L${x2.toFixed(2)} ${y2.toFixed(2)} A${rIn} ${rIn} 0 ${large} 0 ${x3.toFixed(2)} ${y3.toFixed(2)} Z`;
+    }
+
+    function focusSlice(idx) {
+      slices.forEach((s, i) => s.setAttribute('opacity', idx === null || i === idx ? '1' : '0.35'));
+      legItems.forEach((li, i) => li.classList.toggle('is-active', i === idx));
+      if (idx === null) {
+        centerVal.textContent = '219.984';
+        centerSub.textContent = 'sesiones';
+      } else {
+        const c = CHANNELS[idx];
+        centerVal.textContent = nf.format(c.val);
+        centerSub.textContent = c.pct.toFixed(1).replace('.', ',') + '%';
+      }
+    }
+
+    CHANNELS.forEach((c, idx) => {
+      const sweep = (c.val / total) * Math.PI * 2;
+      const p = svgEl('path', {
+        d: arcPath(angle, angle + sweep - 0.015, R, r),
+        fill: c.color,
+        style: 'cursor:pointer; transition: opacity .15s'
+      });
+      const html = `<strong>${c.name}</strong>${nf.format(c.val)} sesiones (${pf(c.pct)})`;
+      p.addEventListener('pointerenter', (e) => { focusSlice(idx); showTip(html, e.clientX, e.clientY); });
+      p.addEventListener('pointermove', (e) => showTip(html, e.clientX, e.clientY));
+      p.addEventListener('pointerleave', () => { focusSlice(null); hideTip(); });
+      p.addEventListener('click', (e) => { focusSlice(idx); showTip(html, e.clientX, e.clientY, true); });
+      svg.appendChild(p);
+      slices.push(p);
+      angle += sweep;
+
+      const li = document.createElement('li');
+      li.innerHTML = `<span class="pie-dot" style="background:${c.color}"></span><span class="pie-name">${c.name}</span><span class="pie-val">${pf(c.pct)} · ${nf.format(c.val)}</span>`;
+      li.addEventListener('pointerenter', () => focusSlice(idx));
+      li.addEventListener('pointerleave', () => focusSlice(null));
+      li.addEventListener('click', () => focusSlice(idx));
+      legend.appendChild(li);
+      legItems.push(li);
+    });
+    box.appendChild(svg);
+  }
+
+  document.querySelectorAll('table.sortable').forEach((table) => {
+    const headers = table.querySelectorAll('thead th');
+    const tbody = table.querySelector('tbody');
+    headers.forEach((th, colIdx) => {
+      th.classList.add('is-sortable');
+      th.tabIndex = 0;
+      const ind = document.createElement('span');
+      ind.className = 'sort-ind';
+      ind.setAttribute('aria-hidden', 'true');
+      ind.textContent = '↕';
+      th.appendChild(ind);
+      let dir = 0;
+      const runSort = () => {
+        dir = dir === -1 ? 1 : -1;
+        headers.forEach((other) => {
+          if (other !== th) {
+            other.removeAttribute('aria-sort');
+            const ob = other.querySelector('.sort-ind');
+            if (ob) ob.textContent = '↕';
+          }
+        });
+        th.setAttribute('aria-sort', dir === 1 ? 'ascending' : 'descending');
+        ind.textContent = dir === 1 ? '↑' : '↓';
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+        rows.sort((a, b) => {
+          const ca = a.children[colIdx];
+          const cb = b.children[colIdx];
+          const va = ca.dataset.sort !== undefined ? Number(ca.dataset.sort) : NaN;
+          const vb = cb.dataset.sort !== undefined ? Number(cb.dataset.sort) : NaN;
+          if (!Number.isNaN(va) && !Number.isNaN(vb)) return (va - vb) * dir;
+          return ca.textContent.trim().localeCompare(cb.textContent.trim(), 'es') * dir;
+        });
+        rows.forEach((r) => tbody.appendChild(r));
+      };
+      th.addEventListener('click', runSort);
+      th.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); runSort(); }
+      });
+    });
+  });
+
+  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+  const sections = tocLinks.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if ('IntersectionObserver' in window && sections.length) {
+    const tocObs = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          const id = '#' + en.target.id;
+          tocLinks.forEach((a) => a.classList.toggle('is-active', a.getAttribute('href') === id));
+        }
+      });
+    }, { rootMargin: '-25% 0px -65% 0px' });
+    sections.forEach((s) => tocObs.observe(s));
+  }
+
+  drawTrend();
+  drawMoments();
+  drawMobile();
+  drawPie();
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      drawTrend();
+      drawMoments();
+      drawMobile();
+      const act = seg.querySelector('button[aria-selected="true"]');
+      if (act) positionSlider(act);
+    }, 120);
+  });
+})();
+</script>
+</body>
+</html>
